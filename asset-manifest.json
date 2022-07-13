@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/uselessfacts/static/css/main.1e4a2a78.css",
-    "main.js": "/uselessfacts/static/js/main.e4f52577.js",
+    "main.js": "/uselessfacts/static/js/main.433f3b15.js",
     "static/js/787.e90fdd32.chunk.js": "/uselessfacts/static/js/787.e90fdd32.chunk.js",
     "static/media/Raleway.ttf": "/uselessfacts/static/media/Raleway.3fefe681f4c62116679b.ttf",
     "index.html": "/uselessfacts/index.html",
     "main.1e4a2a78.css.map": "/uselessfacts/static/css/main.1e4a2a78.css.map",
-    "main.e4f52577.js.map": "/uselessfacts/static/js/main.e4f52577.js.map",
+    "main.433f3b15.js.map": "/uselessfacts/static/js/main.433f3b15.js.map",
     "787.e90fdd32.chunk.js.map": "/uselessfacts/static/js/787.e90fdd32.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1e4a2a78.css",
-    "static/js/main.e4f52577.js"
+    "static/js/main.433f3b15.js"
   ]
 }
