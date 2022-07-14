@@ -20,7 +20,7 @@ class App extends Component {
   }
   render() {
   const {dailyfacts, randomfacts} = this.state.facts
-  return(<div><NavBar url={dailyfacts}/><Factsgen randomfacts={randomfacts}/><h1>Styling Still Left</h1></div>)}
+  return(<div><NavBar url={dailyfacts}/><Factsgen randomfacts={randomfacts}/></div>)}
 }
 
 
