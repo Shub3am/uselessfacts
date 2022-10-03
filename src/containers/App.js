@@ -1,27 +1,45 @@
-import react, {Component} from "react";
-import Factsgen from '../components/factsgenerator';
-import NavBar from '../components/navbar';
-import '../App.css'
-class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {facts:{dailyfacts: "", randomfacts: ""}}
-  }
-  async componentDidMount(){
-    try {
-    const raw_daily_facts = await fetch("https://uselessfacts.jsph.pl/today.json?language=en")
-    const raw_random_facts = await fetch("https://uselessfacts.jsph.pl/random.json?language=en")
-    const daily_fact = await raw_daily_facts.json()
-    const random_fact = await raw_random_facts.json()
-    this.setState({facts:{dailyfacts: daily_fact.text, randomfacts: random_fact.text}}) }
-    catch (e) {
-      this.setState({facts:{dailyfacts: "Attempted Too Many Times", randomfacts: "Attempted Too Many Times"}})
-    }
-  }
-  render() {
-  const {dailyfacts, randomfacts} = this.state.facts
-  return(<div><NavBar url={dailyfacts}/><Factsgen randomfacts={randomfacts}/></div>)}
-}
+import { useState, useEffect } from "react";
+import Factsgen from "../components/factsgenerator";
+import NavBar from "../components/navbar";
+import "../App.css";
+function App() {
+  const [Facts, SetFacts] = useState({ dailyfacts: "", randomfacts: "" }); //Using React Hooks Here
 
+  useEffect(() => {
+    fetch("https://uselessfacts.jsph.pl/today.json?language=en")
+      .then((today) => today.json())
+      .then((todayfacts) =>
+        SetFacts((initial) => {
+          return { ...initial, dailyfacts: todayfacts.text };
+        })
+      )
+      .then(
+        fetch("https://uselessfacts.jsph.pl/random.json?language=en")
+          .then((random) => random.json())
+          .then((randomfacts) =>
+            SetFacts((initial) => {
+              return { ...initial, randomfacts: randomfacts.text };
+            })
+          )
+      )
+      .catch(() =>
+        SetFacts((prev) => {
+          return {
+            randomfacts: "Wait 5 Seconds!",
+            dailyfacts: "Wait 5 Seconds!",
+          };
+        })
+      );
+  }, []);
+
+  const { dailyfacts, randomfacts } = Facts;
+
+  return (
+    <div>
+      <NavBar url={dailyfacts} />
+      <Factsgen randomfacts={randomfacts} />
+    </div>
+  );
+}
 
 export default App;

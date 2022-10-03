@@ -1,14 +1,34 @@
 @font-face {
-  font-family: 'Railway';
-  src: url('../public/Raleway.ttf'), format('truetype')
+  font-family: "Railway";
+  src: url("../public/Raleway.ttf"), format("truetype");
 }
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Railway';
+  font-family: "Railway";
   font-weight: 400;
 }
 
 h1 {
   font-weight: 400;
+}
+.nav-bar {
+  padding: 0 1em;
+}
+.facts {
+  border: 1px black solid;
+  margin: 1em 20%;
+  padding: 0.5em;
+  background: #c8e0f4;
+  color: #031927;
+  border-radius: 0.2em;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-bar {
+    flex-wrap: wrap;
+    align-items: center;
+    /* justify-content: initial; */
+    justify-content: center;
+  }
 }
